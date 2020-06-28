@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <main-nav/>
+    <main-left class="mainLeft"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import MainNav from '@/components/MainNav/index.vue'
+import MainLeft from '@/components/MainLeft/index.vue'
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    MainNav,
+    MainLeft
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.home{
+  min-width: 300px;
+  height: 100px;
+  max-width: 980px;
+  margin: 0 auto;
+  .mainLeft{
+    width: 220px;
+    background-color: #f9f9f9;
+  }
+}
+</style>
