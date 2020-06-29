@@ -9,7 +9,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #333;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

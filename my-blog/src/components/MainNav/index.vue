@@ -2,7 +2,7 @@
   <div class="MainNav">
     <div class="home">
       <img src="../../assets/home.png">
-      <div class="name">JYYX</div>
+      <div class="name">SFYS</div>
       <h-input class="hInput"></h-input>
     </div>
   </div>
