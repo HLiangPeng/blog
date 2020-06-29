@@ -2,7 +2,7 @@
   <div class="navLink">
     <div class="title">导航</div>
     <div class="list">
-      <div class="item" v-for="(item,index) of list" :key="index">
+      <div class="item" v-for="(item,index) of list" :key="index" @click="$router.push({name: item.linkName})">
         <img :src="item.img" >
         <div class="name">{{item.name}}</div>
         <div class="num">{{item.num}}</div>
@@ -19,12 +19,14 @@ export default {
         {
           name: '动态',
           num: 7,
-          img: require('../../assets/news.png')
+          img: require('../../assets/news.png'),
+          linkName: 'News'
         },
         {
           name: '编程技术',
           num: 5,
-          img: require('../../assets/code.png')
+          img: require('../../assets/code.png'),
+          linkName: 'Code'
         },
         {
           name: '生活轶事',
@@ -33,6 +35,9 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+
   }
 }
 </script>

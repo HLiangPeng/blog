@@ -1,11 +1,19 @@
 <template>
   <div class="MainMid">
     <mid-top />
+    <keep-alive>
+      <router-view>
+        <News />
+        <Code />
+      </router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
 import MidTop from '@/components/MainMid/midTop.vue'
+import News from '@/components/MainMid/news.vue'
+import Code from '@/components/MainMid/code.vue'
 export default {
   data(){
     return{
@@ -13,7 +21,9 @@ export default {
     }
   },
   components: {
-    MidTop
+    MidTop,
+    News,
+    Code
   }
 }
 </script>

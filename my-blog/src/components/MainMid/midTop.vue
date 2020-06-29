@@ -3,7 +3,7 @@
     <div class="info">
       <div class="left">
         <div class="name">三分月色</div>
-        <div class="desc">一枚得不到爱情，敲代码又经常报错的小倒霉蛋。</div>
+        <div class="desc">一枚得不到爱情，敲代码还经常报错的小倒霉蛋。</div>
       </div>
       <div class="right">
         <div class="item">

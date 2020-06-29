@@ -39,7 +39,12 @@ export default {
   }
   .content{
     display: flex;
+    padding-left: 220px;
+    position: relative;
     .mainLeft{
+      position: fixed;
+      left: 0;
+      top: 50px;
       width: 220px;
       height: calc(100vh - 50px);
       background-color: #f9f9f9;
