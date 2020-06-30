@@ -34,16 +34,19 @@ export default {
   height: 100px;
   margin: 0 auto;
   .mainNav{
-    position: relative;
-    z-index: 2;
+    width: 980px;
+    position: fixed;
+    top: 0;
+    z-index: 99;
   }
   .content{
     display: flex;
     padding-left: 220px;
+    padding-top: 50px;
     position: relative;
     .mainLeft{
       position: fixed;
-      left: 0;
+      left: calc((100% - 980px) / 2);
       top: 50px;
       width: 220px;
       height: calc(100vh - 50px);
@@ -63,6 +66,5 @@ export default {
       box-shadow: 3px 0px 3px #eee;
     }
   }
-  
 }
 </style>

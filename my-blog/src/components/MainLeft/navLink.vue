@@ -31,7 +31,8 @@ export default {
         {
           name: '生活轶事',
           num: 2,
-          img: require('../../assets/live.png')
+          img: require('../../assets/live.png'),
+          linkName: 'Live'
         }
       ]
     }

@@ -5,6 +5,7 @@
       <router-view>
         <News />
         <Code />
+        <Live />
       </router-view>
     </keep-alive>
   </div>
@@ -14,6 +15,7 @@
 import MidTop from '@/components/MainMid/midTop.vue'
 import News from '@/components/MainMid/news.vue'
 import Code from '@/components/MainMid/code.vue'
+import Live from '@/components/MainMid/live.vue'
 export default {
   data(){
     return{
@@ -23,7 +25,8 @@ export default {
   components: {
     MidTop,
     News,
-    Code
+    Code,
+    Live
   }
 }
 </script>

@@ -1,23 +1,17 @@
 <template>
-  <div class="code">
+  <div class="live">
     <div class="mainTitle">
-      <div class="item">编程技术</div>
+      <div class="item">生活轶事</div>
     </div>
     <div class="list">
       <div class="item" v-for="(item,index) of 6" :key="index">
         <div class="title">
-          这一世的美好，皆因一个你
+          2020 年 06 月 30 日
         </div>
         <div class="desc">
           出门前给爱人一个亲吻，每周为自己做一桌丰盛的大餐，帮同事庆祝一次生日，陪父母参观一次升旗仪式，定期给朋友打个问候电话……生活中的仪式感，无处不在，只是我们渐渐忽视、淡忘了。
-仪式感是把本来单调普通的事情，变得不一样，对此怀有敬畏心理。无聊的生活中，平淡是常态，你总要找到一种新的方式，让自己度过无趣的日子。
-你既可以享受美好的一切，也可以坦然面对糟糕的一切。你得意时不会忘形，失意时也不会潦倒。你知道，无论境况如何，生活都必须庄重。仪式感，会让你在平凡又琐碎的日子里，找到诗意的生活，找到继续前进的微光，找到不愿将就的勇气。
-        </div>
-        <div class="info">
-          <div class="time">
-            <img src="../../assets/time.png">
-            2020 年 06 月 30 日
-          </div>
+          仪式感是把本来单调普通的事情，变得不一样，对此怀有敬畏心理。无聊的生活中，平淡是常态，你总要找到一种新的方式，让自己度过无趣的日子。
+          你既可以享受美好的一切，也可以坦然面对糟糕的一切。你得意时不会忘形，失意时也不会潦倒。你知道，无论境况如何，生活都必须庄重。仪式感，会让你在平凡又琐碎的日子里，找到诗意的生活，找到继续前进的微光，找到不愿将就的勇气。
         </div>
       </div>
     </div>
@@ -31,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.code{
+.live{
   .mainTitle {
     display: flex;
     flex-wrap: wrap;
@@ -75,22 +69,6 @@ export default {
         -webkit-line-clamp: 6;
         -webkit-box-orient: vertical;
         margin-bottom: 20px;
-      }
-      .info{
-        display: flex;
-        align-items: center;
-        padding-top: 16px;
-        border-top: 1px solid #ededed;
-        .time{
-          display: flex;
-          align-items: center;
-          color: #a0a0a0;
-          font-size: 12px;
-          img{
-            width: 16px;
-            margin-right: 10px;
-          }
-        }
       }
     }
   }

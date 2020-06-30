@@ -33,10 +33,12 @@ export default {};
 
 <style lang="scss" scoped>
 .news {
+  width: 100%;
   .mainTitle {
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
+    background-color: #fff;
     .item{
       padding: 6px 12px;
       color: #fff;

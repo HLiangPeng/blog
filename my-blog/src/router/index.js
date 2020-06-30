@@ -17,6 +17,10 @@ Vue.use(VueRouter)
       path: '/code',
       name: 'Code',
       component: () => import('../components/MainMid/code.vue')
+    },{
+      path: '/live',
+      name: 'Live',
+      component: () => import('../components/MainMid/live.vue')
     }]
   },
 ]
