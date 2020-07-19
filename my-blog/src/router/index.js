@@ -7,6 +7,7 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
+    redirect: '/news',
     name: 'Home',
     component: Home,
     children: [{

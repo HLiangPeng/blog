@@ -2,7 +2,7 @@
   <div class="home_left">
     <Logo />
     <div class="list">
-      <div class="item" :class="handleIndex == index? 'active':''" v-for="(item,index) of nav_list" :key="index" @click="handleItem(item)">
+      <div class="item" :class="handleIndex == index? 'active':''" v-for="(item,index) of nav_list" :key="index" @click="handleItem(item,index)">
         <img v-show="handleIndex != index" :src="item.icon" alt="">
         <img v-show="handleIndex == index" :src="item.icon_handle" alt="">
         {{item.name}}
@@ -36,8 +36,8 @@ export default {
     Logo
   },
   methods: {
-    handleItem(item){
-      this.handleIndex = item.index
+    handleItem(item,index){
+      this.handleIndex = index
       this.$store.commit('changeRouter',item.name)
       this.$router.push({name: item.link})
     }
