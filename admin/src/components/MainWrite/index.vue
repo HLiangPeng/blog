@@ -1,19 +1,25 @@
 <template>
   <div class="main_write">
+    <h-title placeholder="请输入博客标题" v-model="value"/>
     <mavon-editor v-model="content" ref="md" @change="change" style="min-height: 600px" />
-    <div class="btn">
+    <div class="btn" @click="postData">
       提交
     </div>
   </div>
 </template>
 
 <script>
+import HTitle from '../MainWrite/title'
 export default {
   data() {
     return {
       html: "",
-      content: ""
+      content: "",
+      value: ""
     };
+  },
+  components: {
+    HTitle
   },
   created(){
     this.getArticleList()
@@ -32,6 +38,9 @@ export default {
     change(value, render) {
       this.html = render;
     },
+    postData(){
+      console.log(this.value)
+    }
   }
 };
 </script>

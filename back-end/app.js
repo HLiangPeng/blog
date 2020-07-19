@@ -1,45 +1,46 @@
-var createError = require('http-errors');
-var express = require('express');
-// var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose')
+const createError = require('http-errors');
+const express = require('express');
+// const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+// const mongoose = require('mongoose')
+const fs = require('fs');
 
 const usersRouter = require('./routes/users');
 const blogRouter = require('./routes/blog')
 
-var app = express();
+const app = express();
 
-mongoose.connect('mongodb://localhost/blog')
+// mongoose.connect('mongodb://localhost/blog')
 
-var db = mongoose.connection;
+// var db = mongoose.connection;
 
-// 连接数据库
-db.on('open', ()=>{
-    console.log('MongoDB连接成功');
-    let BlogSchema = mongoose.Schema({
-      name: String,
-      content: String
-    })
-    let Blog = mongoose.model('Blog',BlogSchema)
-    // let blog_1 = new Blog({
-    //   name: '博客一',
-    //   content: '内容一'
-    // })
-    // blog_1.save((err,res)=>{
-    //   if(err){
-    //     return console.error(err)
-    //   }
-    //   console.log(res)
-    // })
-    Blog.find(function (err, kittens) {
-      if (err) return console.error(err);
-      console.log(kittens);
-    })
-});
-db.on('error', ()=>{
-    console.log('MongoDB连接失败');
-});
+// // 连接数据库
+// db.on('open', ()=>{
+//     console.log('MongoDB连接成功');
+//     let BlogSchema = mongoose.Schema({
+//       name: String,
+//       content: String
+//     })
+//     let Blog = mongoose.model('Blog',BlogSchema)
+//     // let blog_1 = new Blog({
+//     //   name: '博客一',
+//     //   content: '内容一'
+//     // })
+//     // blog_1.save((err,res)=>{
+//     //   if(err){
+//     //     return console.error(err)
+//     //   }
+//     //   console.log(res)
+//     // })
+//     Blog.find(function (err, kittens) {
+//       if (err) return console.error(err);
+//       // console.log(kittens);
+//     })
+// });
+// db.on('error', ()=>{
+//     console.log('MongoDB连接失败');
+// });
 
 
 
@@ -72,5 +73,39 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+/**
+ * 全局方法
+ * 接口模块
+ */
+const fileName = ['plugins', 'models'];
+const global = fs.readdirSync(__dirname).filter(i => fileName.includes(i)).reduce((total, item) => {
+    const files = fs.readdirSync(__dirname + '/' + item)
+    console.log(files)
+    files.map(i => {
+        let name = i.replace('.js', '')
+        let nameKey = i.replace('.js', '')
+        if(item == 'models'){
+            nameKey = name.replace(/^\S/, s => s.toUpperCase())
+        }
+        total[item][nameKey] = require(  __dirname + '/' + item + '/' +  name)
+    })
+    return total
+}, {'plugins': {}, 'models': {}})
+
+// 加载所有路由
+const dirname = __dirname + '/routes'
+fs.readdirSync(dirname).forEach((i) => {
+    const file = dirname + '/' + i;
+    if(fs.statSync(file).isDirectory()){
+        fs.readdirSync(file).forEach(item => {
+            const name = item.replace('.js', '');
+            require( file + '/' + name )(app, global['plugins'], global['models'])
+        })
+    }
+})
+
+
+require('./plugins/db')(app)
 
 module.exports = app;
