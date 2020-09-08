@@ -2,7 +2,7 @@
   <div class="main_write">
     <h-title placeholder="请输入博客标题" v-model="value"/>
     <mavon-editor v-model="content" ref="md" @change="change" style="min-height: 600px" />
-    <div class="btn" @click="postData">
+    <div class="btn" @click="saveArticle">
       提交
     </div>
   </div>
@@ -31,15 +31,21 @@ export default {
     // 列表
     getArticleList(){
       console.log(this.$api)
-      this.$api.getArticleList().then(res=>{
+      this.$api.home().then(res=>{
+        console.log(res)
+      })
+    },
+    // 提交技术博客
+    saveArticle(){
+      this.$api.saveArticle({
+        title: this.value,
+        content: this.content
+      }).then(res=>{
         console.log(res)
       })
     },
     change(value, render) {
       this.html = render;
-    },
-    postData(){
-      console.log(this.value)
     }
   }
 };

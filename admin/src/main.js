@@ -4,10 +4,10 @@ import router from './router'
 import store from './store'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
-import api from './utils/api.js'
-// import utils from './utils/utils.js'
+import api from './utils/api'
+import utils from './utils/utils.js'
 Vue.prototype.$api = api;
-// Vue.prototype.$utils = utils;
+Vue.prototype.$utils = utils;
 console.log(process.env.VUE_APP_BASE_API)
 Vue.config.productionTip = false
 
