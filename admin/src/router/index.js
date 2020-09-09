@@ -6,23 +6,19 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/write',
+    name: '/',
+    component: () => import('@/views/login.vue'),
   },
-  // {
-  //   path: 'homeMain',
-  //   name: 'HomeMain',
-  //   component: () => import('../components/HomeMain/index.vue'),
-    // children: [{
-    //   path: '/write',
-    //   name: 'MainWrite',
-    //   component: () => import('../components/MainWrite/index.vue')
-    // }]
-  // },
   {
-    path: '/write',
-    name: 'MainWrite',
-    component: () => import('../components/MainWrite/index.vue')
-  }
+    path: '/home',
+    name: 'home',
+    component: () => import('@/views/home.vue'),
+    children: [{
+      path: '',
+      name: 'MainWrite',
+      component: () => import('@/components/MainWrite/index.vue')
+    }]
+  },
 ]
 
 const router = new VueRouter({

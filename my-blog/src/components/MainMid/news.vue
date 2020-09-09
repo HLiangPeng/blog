@@ -5,20 +5,20 @@
     </div>
     <div class="list">
       <div class="line"></div>
-      <div class="item" v-for="(item,index) of 6" :key="index">
+      <div class="item" v-for="(item,index) of initData" :key="index">
         <img src="../../assets/avatar.jpg">
         <div class="tri"></div>
-        <div class="content">
+        <div class="content" @click="$router.push({name: 'detail'})">
           <div class="itemTop">
             <div class="name">
-              三分月色
+              {{item.title}}
             </div>
             <div class="time">
-              2020-06-29；21:15
+              {{item.date}}
             </div>
           </div>
           <div class="itemText">
-            后天就要离开这个呆了一年的出租小屋里，淡定的我一如往日，彷佛我不需要道别一样。我是什么时候变得对任何事都毫无计划，任由着生活推动着我前进的。此刻只想...只想~~~
+            {{item.content}}
           </div>
         </div>
       </div>
@@ -28,7 +28,26 @@
 </template>
 
 <script>
-export default {};
+
+export default {
+  data(){
+    return{
+      initData: []
+    }
+  },
+  mounted(){
+    this.article()
+  },
+  methods: {
+    article(){
+      this.$api.article().then(res=>{
+        if(res.code == 200){
+          this.initData = res.data
+        }
+      })
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -89,6 +108,8 @@ export default {};
         box-shadow: 0 0 6px rgb(236, 236, 236);
         color: #777;
         font-size: 13px;
+        width: 100%;
+        cursor: pointer;
         .itemTop{
           display: flex;
           align-items: center;

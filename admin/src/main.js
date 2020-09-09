@@ -8,7 +8,6 @@ import api from './utils/api'
 import utils from './utils/utils.js'
 Vue.prototype.$api = api;
 Vue.prototype.$utils = utils;
-console.log(process.env.VUE_APP_BASE_API)
 Vue.config.productionTip = false
 
 Vue.use(mavonEditor)

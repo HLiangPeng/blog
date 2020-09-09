@@ -4,24 +4,32 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
-    redirect: '/news',
-    name: 'Home',
+    name: '/',
+    component: () => import('@/views/Login.vue'),
+  },
+  {
+    path: '/home',
+    name: 'home',
     component: Home,
     children: [{
-      path: '/news',
+      path: '/',
       name: 'News',
       component: () => import('../components/MainMid/news.vue')
-    },{
+    }, {
       path: '/code',
       name: 'Code',
       component: () => import('../components/MainMid/code.vue')
-    },{
+    }, {
       path: '/live',
       name: 'Live',
       component: () => import('../components/MainMid/live.vue')
+    },{
+      path: '/detail',
+      name: 'detail',
+      component: () => import('../components/MainMid/detail.vue')
     }]
   },
 ]

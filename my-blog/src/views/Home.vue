@@ -27,14 +27,11 @@ export default {
 
 <style lang="scss" scoped>
 .home{
-  /* 暂时不做太多兼容 */
-  /* min-width: 980px;
-  max-width: 980px; */
-  width: 980px;
+  width: 70vw;
   height: 100px;
   margin: 0 auto;
   .mainNav{
-    width: 980px;
+    width: 70vw;
     position: fixed;
     top: 0;
     z-index: 99;
@@ -46,7 +43,7 @@ export default {
     position: relative;
     .mainLeft{
       position: fixed;
-      left: calc((100% - 980px) / 2);
+      left: calc((100% - 70vw) / 2);
       top: 50px;
       width: 220px;
       height: calc(100vh - 50px);

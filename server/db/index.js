@@ -10,12 +10,15 @@ mongoose.connect('mongodb://localhost:27017/blog', (err) => {
 
 const userSchema = new mongoose.Schema({
   name: String,
-  password: String
-})
+  password: String,
+  date: String
+},{versionKey: false})
 
 const articleSchema = new mongoose.Schema({
+  id: String,
   title: String,
   content: String,
+  date: String
 },{versionKey: false})
 
 const Models = {

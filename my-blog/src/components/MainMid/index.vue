@@ -1,13 +1,13 @@
 <template>
   <div class="MainMid">
     <mid-top />
-    <keep-alive>
+    <!-- <keep-alive> -->
       <router-view>
         <News />
         <Code />
         <Live />
       </router-view>
-    </keep-alive>
+    <!-- </keep-alive> -->
   </div>
 </template>
 

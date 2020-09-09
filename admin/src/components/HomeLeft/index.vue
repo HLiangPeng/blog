@@ -19,14 +19,14 @@ export default {
       nav_list: [
         {
           name: '写博客',
-          icon: require('@/assets/home_left/write.png'),
-          icon_handle: require('@/assets/home_left/write_1.png'),
+          icon: require('@/assets/img/home_left/write.png'),
+          icon_handle: require('@/assets/img/home_left/write_1.png'),
           link: 'MainWrite'
         },
         {
           name: '博客管理',
-          icon: require('@/assets/home_left/write.png'),
-          icon_handle: require('@/assets/home_left/write_1.png'),
+          icon: require('@/assets/img/home_left/write.png'),
+          icon_handle: require('@/assets/img/home_left/write_1.png'),
         },
       ],
       handleIndex: 0
