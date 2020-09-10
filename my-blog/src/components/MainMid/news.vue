@@ -8,7 +8,7 @@
       <div class="item" v-for="(item,index) of initData" :key="index">
         <img src="../../assets/avatar.jpg">
         <div class="tri"></div>
-        <div class="content" @click="$router.push({name: 'detail'})">
+        <div class="content" @click="toDetail(item)">
           <div class="itemTop">
             <div class="name">
               {{item.title}}
@@ -22,7 +22,6 @@
           </div>
         </div>
       </div>
-      
     </div>
   </div>
 </template>
@@ -43,6 +42,15 @@ export default {
       this.$api.article().then(res=>{
         if(res.code == 200){
           this.initData = res.data
+        }
+      })
+    },
+    toDetail(item){
+      item = JSON.stringify(item)
+      this.$router.push({
+        name: 'detail',
+        query: {
+          initData: item
         }
       })
     }

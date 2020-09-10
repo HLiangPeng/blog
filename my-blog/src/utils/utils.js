@@ -35,6 +35,14 @@ const utils = {
 		} else {
 			return false;
 		}
+	},
+	// 中文文艺日期
+	timeZh(time){
+		let year = time.slice(0,4),
+		month = time.slice(5,7),
+		day = time.slice(8,10),
+		monthArr = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+		return monthArr[month-1] + ' ' + day + ', ' + year
 	}
 }
 

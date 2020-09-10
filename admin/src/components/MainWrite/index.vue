@@ -2,6 +2,7 @@
   <div class="main_write">
     <h-title placeholder="请输入博客标题" v-model="value"/>
     <mavon-editor v-model="content" ref="md" @change="change" style="min-height: 600px" />
+    <!-- <Markdown v-model="content"/> -->
     <div class="btn" @click="saveArticle">
       提交
     </div>
@@ -10,6 +11,7 @@
 
 <script>
 import HTitle from '../MainWrite/title'
+// import Markdown from 'vue-meditor'
 export default {
   data() {
     return {
@@ -19,7 +21,8 @@ export default {
     };
   },
   components: {
-    HTitle
+    HTitle,
+    // Markdown
   },
   created(){
     this.getArticleList()

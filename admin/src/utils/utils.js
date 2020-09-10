@@ -1,7 +1,7 @@
 const utils = {
 	//转义方法
 	escape2Html: (str) => {
-		str = str.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
+		str = str.replace(/<img/gi, '<img style="max-width:100%;height:auto" ');
 		return str;
 	},
 	// 手机号码验证
