@@ -11,7 +11,7 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "mavon-editor": "^2.9.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "vue": "^2.6.11",
     "vue-meditor": "^2.1.1",
     "vue-router": "^3.3.4",
